@@ -1,11 +1,11 @@
-package com.sitech.analyzer.segmentation.impl;
+package com.sitech.analyzer.algorithm.participle.impl;
 
 import java.util.List;
 import java.util.Map;
 
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
-import com.sitech.analyzer.segmentation.Word;
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
+import com.sitech.analyzer.bean.Word;
 
 /**
  * 基于词典的双向最大匹配算法
@@ -13,8 +13,8 @@ import com.sitech.analyzer.segmentation.Word;
  * @author hb
  */
 public class BidirectionalMaximumMatching extends AbstractSegmentation{
-    private static final AbstractSegmentation MM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.MaximumMatching);
-    private static final AbstractSegmentation RMM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.ReverseMaximumMatching);
+    private static final AbstractSegmentation MM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.MaximumMatching);
+    private static final AbstractSegmentation RMM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.ReverseMaximumMatching);
     @Override
     public List<Word> segImpl(final String text) {
         //逆向最大匹配

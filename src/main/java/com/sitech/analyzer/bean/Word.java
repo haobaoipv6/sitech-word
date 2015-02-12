@@ -1,4 +1,4 @@
-package com.sitech.analyzer.segmentation;
+package com.sitech.analyzer.bean;
 
 import java.util.Objects;
 

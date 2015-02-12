@@ -28,9 +28,9 @@ import com.sitech.analyzer.util.WordConfUtil;
  如未指定，则默认使用词典实现类（com.sitech.analyzer.dictionary.impl.DictionaryTrie）和词典文件（类路径下的dic.txt）
  * @author hb
  */
-public final class DictionaryFactory {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DictionaryFactory.class);
-    private DictionaryFactory(){}
+public final class DicFactory {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DicFactory.class);
+    private DicFactory(){}
     public static final IDic getDictionary(){
         return DictionaryHolder.DIC;
     }

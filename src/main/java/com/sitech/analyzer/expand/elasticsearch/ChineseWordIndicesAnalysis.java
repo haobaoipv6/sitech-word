@@ -13,11 +13,11 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
 import com.sitech.analyzer.expand.lucene.ChineseWordAnalyzer;
 import com.sitech.analyzer.expand.lucene.ChineseWordTokenizer;
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
 
 /**
  * 中文分词索引分析组件
@@ -25,8 +25,8 @@ import com.sitech.analyzer.segmentation.SegmentationFactory;
  */
 public class ChineseWordIndicesAnalysis extends AbstractComponent {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChineseWordIndicesAnalysis.class);
-    private Segmentation analyzerSegmentation = null;
-    private Segmentation tokenizerSegmentation = null;
+    private IParticiple analyzerSegmentation = null;
+    private IParticiple tokenizerSegmentation = null;
     @Inject
     public ChineseWordIndicesAnalysis(Settings settings, IndicesAnalysisService indicesAnalysisService) {
         super(settings);
@@ -47,7 +47,7 @@ public class ChineseWordIndicesAnalysis extends AbstractComponent {
                         Object segAlgorithm = _defaultMap.get("segAlgorithm");
                         if(segAlgorithm != null && type != null && "word".equals(type.toString())){
                             LOGGER.info("analyzer使用指定分词算法："+segAlgorithm.toString());
-                            analyzerSegmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm.toString()));
+                            analyzerSegmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm.toString()));
                         }
                     }
                 }
@@ -60,7 +60,7 @@ public class ChineseWordIndicesAnalysis extends AbstractComponent {
                         Object segAlgorithm = _defaultMap.get("segAlgorithm");
                         if(segAlgorithm != null && type != null && "word".equals(type.toString())){
                             LOGGER.info("tokenizer使用指定分词算法："+segAlgorithm.toString());
-                            tokenizerSegmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm.toString()));
+                            tokenizerSegmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm.toString()));
                         }
                     }
                 }
@@ -69,12 +69,12 @@ public class ChineseWordIndicesAnalysis extends AbstractComponent {
         if(analyzerSegmentation == null){
             LOGGER.info("没有为word analyzer指定segAlgorithm参数");
             LOGGER.info("analyzer使用默认分词算法："+SegmentationAlgorithm.BidirectionalMaximumMatching);
-            analyzerSegmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
+            analyzerSegmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
         }
         if(tokenizerSegmentation == null){
             LOGGER.info("没有为word tokenizer指定segAlgorithm参数");
             LOGGER.info("tokenizer使用默认分词算法："+SegmentationAlgorithm.BidirectionalMaximumMatching);
-            tokenizerSegmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
+            tokenizerSegmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
         }
         // 注册分析器
         indicesAnalysisService.analyzerProviderFactories()

@@ -7,9 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.Word;
-import com.sitech.analyzer.segmentation.impl.ReverseMaximumMatching;
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.algorithm.participle.impl.ReverseMaximumMatching;
+import com.sitech.analyzer.bean.Word;
 
 /**
  *
@@ -18,7 +18,7 @@ import com.sitech.analyzer.segmentation.impl.ReverseMaximumMatching;
 public class ReverseMaximumMatchingTest {    
     @Test
     public void testSeg() {
-        Segmentation segmentation = new ReverseMaximumMatching();
+        IParticiple segmentation = new ReverseMaximumMatching();
         List<String> text = new ArrayList<>();
         text.add("长春市长春节致辞");
         text.add("他说的确实在理");

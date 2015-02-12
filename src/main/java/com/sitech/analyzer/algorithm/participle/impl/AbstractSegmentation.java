@@ -1,4 +1,4 @@
-package com.sitech.analyzer.segmentation.impl;
+package com.sitech.analyzer.algorithm.participle.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,23 +13,23 @@ import java.util.concurrent.Future;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.bean.Word;
 import com.sitech.analyzer.categroy.PersonName;
 import com.sitech.analyzer.categroy.Punctuation;
 import com.sitech.analyzer.corpus.Bigram;
 import com.sitech.analyzer.corpus.Trigram;
 import com.sitech.analyzer.dic.IDic;
-import com.sitech.analyzer.dic.DictionaryFactory;
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.Word;
+import com.sitech.analyzer.dic.DicFactory;
 import com.sitech.analyzer.util.WordConfUtil;
 
 /**
  * 分词算法抽象类
  * @author hb
  */
-public abstract class AbstractSegmentation  implements Segmentation{
+public abstract class AbstractSegmentation  implements IParticiple{
     protected static final Logger LOGGER = LoggerFactory.getLogger(AbstractSegmentation.class);
-    protected static final IDic DIC = DictionaryFactory.getDictionary();
+    protected static final IDic DIC = DicFactory.getDictionary();
     protected static final boolean PERSON_NAME_RECOGNIZE = "true".equals(WordConfUtil.get("person.name.recognize", "true"));
     protected static final boolean KEEP_WHITESPACE = "true".equals(WordConfUtil.get("keep.whitespace", "false"));
     protected static final boolean KEEP_PUNCTUATION = "true".equals(WordConfUtil.get("keep.punctuation", "false"));

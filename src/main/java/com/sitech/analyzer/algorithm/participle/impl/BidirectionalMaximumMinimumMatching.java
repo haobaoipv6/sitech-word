@@ -1,11 +1,11 @@
-package com.sitech.analyzer.segmentation.impl;
+package com.sitech.analyzer.algorithm.participle.impl;
 
 import java.util.List;
 import java.util.Map;
 
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
-import com.sitech.analyzer.segmentation.Word;
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
+import com.sitech.analyzer.bean.Word;
 
 /**
  * 基于词典的双向最大最小匹配算法
@@ -18,10 +18,10 @@ import com.sitech.analyzer.segmentation.Word;
  * @author hb
  */
 public class BidirectionalMaximumMinimumMatching extends AbstractSegmentation{
-    private static final AbstractSegmentation MM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.MaximumMatching);
-    private static final AbstractSegmentation RMM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.ReverseMaximumMatching);
-    private static final AbstractSegmentation MIM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.MinimumMatching);
-    private static final AbstractSegmentation RMIM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.ReverseMinimumMatching);
+    private static final AbstractSegmentation MM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.MaximumMatching);
+    private static final AbstractSegmentation RMM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.ReverseMaximumMatching);
+    private static final AbstractSegmentation MIM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.MinimumMatching);
+    private static final AbstractSegmentation RMIM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.ReverseMinimumMatching);
     @Override
     public List<Word> segImpl(final String text) {
         //逆向最大匹配为默认选择，如果分值都一样的话

@@ -13,10 +13,10 @@ import java.io.Reader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
 import com.sitech.analyzer.expand.lucene.ChineseWordTokenizer;
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
 
 /**
  * 中文分词器工厂
@@ -24,18 +24,18 @@ import com.sitech.analyzer.segmentation.SegmentationFactory;
  */
 public class ChineseWordTokenizerFactory extends AbstractTokenizerFactory {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChineseWordTokenizerFactory.class);
-    private final Segmentation segmentation;
+    private final IParticiple segmentation;
     @Inject
     public ChineseWordTokenizerFactory(Index index, @IndexSettings Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
         super(index, indexSettings, name, settings);
         String segAlgorithm = settings.get("segAlgorithm");
         if(segAlgorithm != null){
             LOGGER.info("tokenizer使用指定分词算法："+segAlgorithm);
-            segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm));
+            segmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm));
         }else{
             LOGGER.info("没有为word tokenizer指定segAlgorithm参数");
             LOGGER.info("tokenizer使用默认分词算法："+SegmentationAlgorithm.BidirectionalMaximumMatching);
-            segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
+            segmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
         }
     }
     @Override

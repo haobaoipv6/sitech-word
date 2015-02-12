@@ -1,4 +1,4 @@
-package com.sitech.analyzer.segmentation;
+package com.sitech.analyzer.algorithm;
 
 /**
  * 中文分词算法

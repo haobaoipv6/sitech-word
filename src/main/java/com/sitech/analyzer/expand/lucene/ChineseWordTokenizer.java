@@ -13,11 +13,11 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
+import com.sitech.analyzer.bean.Word;
 import com.sitech.analyzer.categroy.StopWord;
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
-import com.sitech.analyzer.segmentation.Word;
 
 /**
  * Lucene中文分词器
@@ -30,17 +30,17 @@ public class ChineseWordTokenizer extends Tokenizer {
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
     private final PositionIncrementAttribute positionIncrementAttribute = addAttribute(PositionIncrementAttribute.class);
     
-    private Segmentation segmentation = null;
+    private IParticiple segmentation = null;
     private BufferedReader reader = null;
     private final Queue<Word> words = new LinkedTransferQueue<>();
     private int startOffset=0;
         
     public ChineseWordTokenizer(Reader input) {
         super(input);
-        segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
+        segmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
         reader = new BufferedReader(input);
     }   
-    public ChineseWordTokenizer(Reader input, Segmentation segmentation) {
+    public ChineseWordTokenizer(Reader input, IParticiple segmentation) {
         super(input);
         this.segmentation = segmentation;
         reader = new BufferedReader(input);

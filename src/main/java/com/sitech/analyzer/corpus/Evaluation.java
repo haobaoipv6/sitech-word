@@ -19,9 +19,9 @@ import java.util.Set;
 
 import org.slf4j.LoggerFactory;
 
-import com.sitech.analyzer.WordSegmenter;
+import com.sitech.analyzer.SitechSegmenter;
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
 import com.sitech.analyzer.categroy.Punctuation;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
 
 /**
  * 利用人工标注的语料库
@@ -65,7 +65,7 @@ public class Evaluation {
         for(SegmentationAlgorithm segmentationAlgorithm : SegmentationAlgorithm.values()){
             long start = System.currentTimeMillis();
             //3、对测试数据集进行分词
-            WordSegmenter.segWithStopWords(new File(testText), new File(resultText+segmentationAlgorithm.name()+".txt"), segmentationAlgorithm);
+            SitechSegmenter.segWithStopWords(new File(testText), new File(resultText+segmentationAlgorithm.name()+".txt"), segmentationAlgorithm);
             long cost = System.currentTimeMillis() - start;
             float rate = textCharCount/(float)cost;
             //4、分词效果评估

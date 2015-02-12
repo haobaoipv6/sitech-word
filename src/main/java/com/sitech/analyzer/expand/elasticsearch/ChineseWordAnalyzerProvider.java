@@ -10,10 +10,10 @@ import org.elasticsearch.index.settings.IndexSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
 import com.sitech.analyzer.expand.lucene.ChineseWordAnalyzer;
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
 
 /**
  * 中文分析器工厂
@@ -28,7 +28,7 @@ public class ChineseWordAnalyzerProvider extends AbstractIndexAnalyzerProvider<C
         String segAlgorithm = settings.get("segAlgorithm");
         if(segAlgorithm != null){
             LOGGER.info("analyzer使用指定分词算法："+segAlgorithm);
-            Segmentation segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm));
+            IParticiple segmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.valueOf(segAlgorithm));
             analyzer = new ChineseWordAnalyzer(segmentation);
         }else{
             LOGGER.info("没有为word analyzer指定segAlgorithm参数");

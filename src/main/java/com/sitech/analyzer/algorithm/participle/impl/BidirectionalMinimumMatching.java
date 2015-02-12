@@ -1,11 +1,11 @@
-package com.sitech.analyzer.segmentation.impl;
+package com.sitech.analyzer.algorithm.participle.impl;
 
 import java.util.List;
 import java.util.Map;
 
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
-import com.sitech.analyzer.segmentation.Word;
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
+import com.sitech.analyzer.bean.Word;
 
 /**
  * 基于词典的双向最小匹配算法
@@ -13,8 +13,8 @@ import com.sitech.analyzer.segmentation.Word;
  * @author hb
  */
 public class BidirectionalMinimumMatching extends AbstractSegmentation{
-    private static final AbstractSegmentation MIM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.MinimumMatching);
-    private static final AbstractSegmentation RMIM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.ReverseMinimumMatching);
+    private static final AbstractSegmentation MIM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.MinimumMatching);
+    private static final AbstractSegmentation RMIM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.ReverseMinimumMatching);
     @Override
     public List<Word> segImpl(final String text) {
         //逆向最小匹配

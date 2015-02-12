@@ -1,4 +1,4 @@
-package com.sitech.analyzer.segmentation.impl;
+package com.sitech.analyzer.algorithm.participle.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Stack;
 
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
-import com.sitech.analyzer.segmentation.Word;
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
+import com.sitech.analyzer.bean.Word;
 import com.sitech.analyzer.util.RecognitionUtil;
 import com.sitech.analyzer.util.Utils;
 
@@ -22,7 +22,7 @@ import com.sitech.analyzer.util.Utils;
  * @author hb
  */
 public class FullSegmentation extends AbstractSegmentation{
-    private static final AbstractSegmentation RMM = (AbstractSegmentation)SegmentationFactory.getSegmentation(SegmentationAlgorithm.ReverseMaximumMatching);
+    private static final AbstractSegmentation RMM = (AbstractSegmentation)ParticipleFactory.getSegmentation(SegmentationAlgorithm.ReverseMaximumMatching);
     //在评估采用的测试文本253 3709行2837 4490个字符中,行长度小于等于50的占了99.932465%
     //大于50的行长度文本采用逆向最大匹配算法切分文本
     private static final int PROCESS_TEXT_LENGTH_LESS_THAN = 50;

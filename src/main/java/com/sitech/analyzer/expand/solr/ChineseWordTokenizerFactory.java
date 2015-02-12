@@ -9,10 +9,10 @@ import org.apache.lucene.util.AttributeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
 import com.sitech.analyzer.expand.lucene.ChineseWordTokenizer;
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
 import com.sitech.analyzer.util.WordConfUtil;
 
 /**
@@ -20,7 +20,7 @@ import com.sitech.analyzer.util.WordConfUtil;
  */
 public class ChineseWordTokenizerFactory extends TokenizerFactory {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChineseWordTokenizerFactory.class);
-    private Segmentation segmentation = null;
+    private IParticiple segmentation = null;
     public ChineseWordTokenizerFactory(Map<String, String> args){
         super(args);
         if(args != null){
@@ -35,7 +35,7 @@ public class ChineseWordTokenizerFactory extends TokenizerFactory {
             if(algorithm != null){
                 try{
                     SegmentationAlgorithm segmentationAlgorithm = SegmentationAlgorithm.valueOf(algorithm);
-                    segmentation = SegmentationFactory.getSegmentation(segmentationAlgorithm);
+                    segmentation = ParticipleFactory.getSegmentation(segmentationAlgorithm);
                     LOGGER.info("使用指定分词算法："+algorithm);
                 }catch(Exception e){
                     LOGGER.error("参数segAlgorithm指定的值错误："+algorithm);
@@ -49,7 +49,7 @@ public class ChineseWordTokenizerFactory extends TokenizerFactory {
             }
         }
         if(segmentation == null){
-            segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
+            segmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
             LOGGER.info("使用默认分词算法："+SegmentationAlgorithm.BidirectionalMaximumMatching);
         }
     }

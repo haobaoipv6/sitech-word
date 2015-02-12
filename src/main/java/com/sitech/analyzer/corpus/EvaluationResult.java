@@ -1,6 +1,6 @@
 package com.sitech.analyzer.corpus;
 
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
 
 /**
  * 中文分词效果评估结果

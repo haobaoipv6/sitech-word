@@ -1,4 +1,4 @@
-package com.sitech.analyzer.vector;
+package com.sitech.analyzer.algorithm.vector;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

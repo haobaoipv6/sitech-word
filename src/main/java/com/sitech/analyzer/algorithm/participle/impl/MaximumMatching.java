@@ -1,9 +1,9 @@
-package com.sitech.analyzer.segmentation.impl;
+package com.sitech.analyzer.algorithm.participle.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sitech.analyzer.segmentation.Word;
+import com.sitech.analyzer.bean.Word;
 import com.sitech.analyzer.util.RecognitionUtil;
 
 /**

@@ -12,9 +12,9 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sitech.analyzer.segmentation.Segmentation;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.IParticiple;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
 
 /**
  * Lucene中文分析器
@@ -22,13 +22,13 @@ import com.sitech.analyzer.segmentation.SegmentationFactory;
  */
 public class ChineseWordAnalyzer extends Analyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChineseWordAnalyzer.class);
-    private Segmentation segmentation = null;
+    private IParticiple segmentation = null;
     
     public ChineseWordAnalyzer(){
-        segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
+        segmentation = ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching);
     }
     
-    public ChineseWordAnalyzer(Segmentation segmentation) {
+    public ChineseWordAnalyzer(IParticiple segmentation) {
         this.segmentation = segmentation;
     }
     

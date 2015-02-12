@@ -9,7 +9,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sitech.analyzer.segmentation.Word;
+import com.sitech.analyzer.bean.Word;
 import com.sitech.analyzer.util.AutoDetector;
 import com.sitech.analyzer.util.IResource;
 import com.sitech.analyzer.util.WordConfUtil;

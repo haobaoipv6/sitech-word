@@ -17,18 +17,18 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.algorithm.SegmentationAlgorithm;
+import com.sitech.analyzer.algorithm.participle.ParticipleFactory;
+import com.sitech.analyzer.bean.Word;
 import com.sitech.analyzer.categroy.StopWord;
-import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
-import com.sitech.analyzer.segmentation.SegmentationFactory;
-import com.sitech.analyzer.segmentation.Word;
 
 /**
  * 中文分词基础入口
  * 默认使用双向最大匹配算法
  * 也可指定其他分词算法
  */
-public class WordSegmenter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(WordSegmenter.class);    
+public class SitechSegmenter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SitechSegmenter.class);    
     /**
      * 对文本进行分词，保留停用词
      * 可指定其他分词算法
@@ -37,7 +37,7 @@ public class WordSegmenter {
      * @return 分词结果
      */
     public static List<Word> segWithStopWords(String text, SegmentationAlgorithm segmentationAlgorithm){
-        return SegmentationFactory.getSegmentation(segmentationAlgorithm).seg(text);
+        return ParticipleFactory.getSegmentation(segmentationAlgorithm).seg(text);
     }
     /**
      * 对文本进行分词，保留停用词
@@ -46,7 +46,7 @@ public class WordSegmenter {
      * @return 分词结果
      */
     public static List<Word> segWithStopWords(String text){
-        return SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching).seg(text);
+        return ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching).seg(text);
     }
     /**
      * 对文本进行分词，移除停用词
@@ -56,7 +56,7 @@ public class WordSegmenter {
      * @return 分词结果
      */
     public static List<Word> seg(String text, SegmentationAlgorithm segmentationAlgorithm){        
-        List<Word> words = SegmentationFactory.getSegmentation(segmentationAlgorithm).seg(text);
+        List<Word> words = ParticipleFactory.getSegmentation(segmentationAlgorithm).seg(text);
         return filterStopWords(words);
     }
     /**
@@ -66,7 +66,7 @@ public class WordSegmenter {
      * @return 分词结果
      */
     public static List<Word> seg(String text){
-        List<Word> words = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching).seg(text);
+        List<Word> words = ParticipleFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMaximumMatching).seg(text);
         return filterStopWords(words);
     }    
     /**
