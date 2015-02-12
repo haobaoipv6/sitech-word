@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.sitech.analyzer.segmentation.Word;
 import com.sitech.analyzer.util.AutoDetector;
 import com.sitech.analyzer.util.IResource;
-import com.sitech.analyzer.util.WordConfTools;
+import com.sitech.analyzer.util.WordConfUtil;
 
 /**
  * 二元语法模型
@@ -65,7 +65,7 @@ public class Bigram {
                 }
             }
         
-        }, WordConfTools.get("bigram.path", "classpath:bigram.txt"));
+        }, WordConfUtil.get("bigram.path", "classpath:bigram.txt"));
     }
     /**
      * 含有语境的二元模型分值算法

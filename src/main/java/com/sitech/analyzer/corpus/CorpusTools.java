@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sitech.analyzer.dictionary.DictionaryTools;
+import com.sitech.analyzer.util.DicUtil;
 import com.sitech.analyzer.util.Utils;
 
 /**
@@ -77,7 +77,7 @@ public class CorpusTools {
         //将新提取的词和原来的词典合并
         mergeWordsWithOldDic();
         //移除词典中的短语结构
-        DictionaryTools.removePhraseFromDic("target/phrase.txt", "src/main/resources/dic.txt");
+        DicUtil.removePhraseFromDic("target/phrase.txt", "src/main/resources/dic.txt");
     }    
     /**
      * 分析语料库
@@ -326,7 +326,7 @@ public class CorpusTools {
         sources.add("src/main/resources/dic.txt");
         String target = "src/main/resources/dic.txt";
         try {
-            DictionaryTools.merge(sources, target);
+            DicUtil.merge(sources, target);
         } catch (IOException ex) {
             LOGGER.info("和现有词典合并失败：", ex);
         }

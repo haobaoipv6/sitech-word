@@ -28,9 +28,9 @@ import org.elasticsearch.indices.analysis.IndicesAnalysisModule;
 import org.elasticsearch.indices.analysis.IndicesAnalysisService;
 import org.junit.Test;
 
-import com.sitech.analyzer.elasticsearch.ChineseWordAnalysisBinderProcessor;
-import com.sitech.analyzer.elasticsearch.ChineseWordTokenizerFactory;
-import com.sitech.analyzer.lucene.ChineseWordAnalyzer;
+import com.sitech.analyzer.expand.elasticsearch.ChineseWordAnalysisBinderProcessor;
+import com.sitech.analyzer.expand.elasticsearch.ChineseWordTokenizerFactory;
+import com.sitech.analyzer.expand.lucene.ChineseWordAnalyzer;
 
 /**
  * ElasticSearch中文分词索引分析单元测试

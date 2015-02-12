@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sitech.analyzer.dictionary.impl.DictionaryTrie;
+import com.sitech.analyzer.dic.impl.DictionaryTrie;
 
 /**
  *

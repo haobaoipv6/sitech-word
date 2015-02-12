@@ -33,7 +33,7 @@ public class DirectoryWatcher {
     private WatchEvent.Kind<?>[] events;
     
     public static DirectoryWatcher getDirectoryWatcher(final WatcherCallback watcherCallback, WatchEvent.Kind<?>... events){
-        if("true".equals(WordConfTools.get("auto.detect", "true"))){
+        if("true".equals(WordConfUtil.get("auto.detect", "true"))){
             return new DirectoryWatcher(watcherCallback, events);
         }
         LOGGER.warn("注意：未启用自动检测功能！如需启用，请在word.local.conf文件中指定配置项auto.detect=true");

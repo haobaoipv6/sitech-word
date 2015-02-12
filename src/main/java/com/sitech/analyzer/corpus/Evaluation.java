@@ -20,7 +20,7 @@ import java.util.Set;
 import org.slf4j.LoggerFactory;
 
 import com.sitech.analyzer.WordSegmenter;
-import com.sitech.analyzer.recognition.Punctuation;
+import com.sitech.analyzer.categroy.Punctuation;
 import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
 
 /**

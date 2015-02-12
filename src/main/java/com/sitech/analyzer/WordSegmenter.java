@@ -17,7 +17,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sitech.analyzer.recognition.StopWord;
+import com.sitech.analyzer.categroy.StopWord;
 import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
 import com.sitech.analyzer.segmentation.SegmentationFactory;
 import com.sitech.analyzer.segmentation.Word;

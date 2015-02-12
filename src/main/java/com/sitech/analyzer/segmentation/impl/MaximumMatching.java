@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sitech.analyzer.segmentation.Word;
-import com.sitech.analyzer.util.RecognitionTool;
+import com.sitech.analyzer.util.RecognitionUtil;
 
 /**
  * 基于词典的正向最大匹配算法
@@ -29,7 +29,7 @@ public class MaximumMatching extends AbstractSegmentation{
                 len=textLen-start;
             }
             //用长为len的字符串查词典，并做特殊情况识别
-            while(!DIC.contains(text, start, len) && !RecognitionTool.recog(text, start, len)){
+            while(!DIC.contains(text, start, len) && !RecognitionUtil.recog(text, start, len)){
                 //如果长度为一且在词典中未找到匹配
                 //则按长度为一切分
                 if(len==1){

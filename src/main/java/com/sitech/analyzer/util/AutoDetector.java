@@ -142,8 +142,8 @@ public class AutoDetector {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                String host = WordConfTools.get("redis.host", "localhost");
-                int port = WordConfTools.getInt("redis.port", 6379);
+                String host = WordConfUtil.get("redis.host", "localhost");
+                int port = WordConfUtil.getInt("redis.port", 6379);
                 String channel_add = channel+".add";
                 String channel_remove = channel+".remove";
                 LOGGER.info("redis服务器配置信息 host:" + host + ",port:" + port + ",channels:[" + channel_add + "," + channel_remove+"]");

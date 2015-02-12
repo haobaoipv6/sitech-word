@@ -5,8 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import com.sitech.analyzer.recognition.Punctuation;
-import com.sitech.analyzer.util.RecognitionTool;
+
+import com.sitech.analyzer.categroy.Punctuation;
+import com.sitech.analyzer.util.RecognitionUtil;
 import com.sitech.analyzer.util.Utils;
 
 /**
@@ -27,8 +28,8 @@ public class FeatrueWord {
             System.out.println("判断句子是否有英文单词："+sentence);
             int start=0;
             for(int i=0; i<sentence.length(); i++){
-                if(RecognitionTool.isEnglish(sentence.charAt(i))){
-                    if(i>1 && !RecognitionTool.isEnglish(sentence.charAt(i-1))){
+                if(RecognitionUtil.isEnglish(sentence.charAt(i))){
+                    if(i>1 && !RecognitionUtil.isEnglish(sentence.charAt(i-1))){
                         sentences.add(sentence.substring(start,i));
                         start=i+1;
                     }else{

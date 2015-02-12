@@ -13,7 +13,7 @@ import java.util.Random;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.sitech.analyzer.util.RecognitionTool;
+import com.sitech.analyzer.util.RecognitionUtil;
 
 /**
  *
@@ -60,7 +60,7 @@ public class RecognitionToolTest {
         }        
         for(int i=0; i<text.size(); i++){
             String str = text.get(i);
-            boolean result = RecognitionTool.isEnglish(str, 0, str.length());
+            boolean result = RecognitionUtil.isEnglish(str, 0, str.length());
             assertEquals(str, expect.get(i), result);
         }
     }
@@ -91,7 +91,7 @@ public class RecognitionToolTest {
         }        
         for(int i=0; i<text.size(); i++){
             String str = text.get(i);
-            boolean result = RecognitionTool.isNumber(str, 0, str.length());
+            boolean result = RecognitionUtil.isNumber(str, 0, str.length());
             assertEquals(str, expect.get(i), result);
         }
     }    
@@ -123,7 +123,7 @@ public class RecognitionToolTest {
         }
         text.addAll(list);
         for(String s : text){
-            boolean result = RecognitionTool.isEnglishAndNumberMix(s, 0, s.length());
+            boolean result = RecognitionUtil.isEnglishAndNumberMix(s, 0, s.length());
             assertEquals(s, true, result);
         }
     }
@@ -160,14 +160,14 @@ public class RecognitionToolTest {
         }
         for(int i=0; i<text.size(); i++){
             String str = text.get(i);
-            boolean result = RecognitionTool.isChineseNumber(str, 0, str.length());
+            boolean result = RecognitionUtil.isChineseNumber(str, 0, str.length());
             assertEquals(str, expect.get(i), result);
         }
     }    
     @Test
     public void testIsQuantifier() {
         for(String str : QUANTIFIER){
-            boolean result = RecognitionTool.isQuantifier(str, 0, str.length());
+            boolean result = RecognitionUtil.isQuantifier(str, 0, str.length());
             assertEquals(str, true, result);
         }
     }

@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.sitech.analyzer.recognition.Punctuation;
+import com.sitech.analyzer.categroy.Punctuation;
 
 /**
  *

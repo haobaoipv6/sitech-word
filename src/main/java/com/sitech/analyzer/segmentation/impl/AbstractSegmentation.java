@@ -13,15 +13,15 @@ import java.util.concurrent.Future;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sitech.analyzer.categroy.PersonName;
+import com.sitech.analyzer.categroy.Punctuation;
 import com.sitech.analyzer.corpus.Bigram;
 import com.sitech.analyzer.corpus.Trigram;
-import com.sitech.analyzer.dictionary.Dictionary;
-import com.sitech.analyzer.dictionary.DictionaryFactory;
-import com.sitech.analyzer.recognition.PersonName;
-import com.sitech.analyzer.recognition.Punctuation;
+import com.sitech.analyzer.dic.IDic;
+import com.sitech.analyzer.dic.DictionaryFactory;
 import com.sitech.analyzer.segmentation.Segmentation;
 import com.sitech.analyzer.segmentation.Word;
-import com.sitech.analyzer.util.WordConfTools;
+import com.sitech.analyzer.util.WordConfUtil;
 
 /**
  * 分词算法抽象类
@@ -29,13 +29,13 @@ import com.sitech.analyzer.util.WordConfTools;
  */
 public abstract class AbstractSegmentation  implements Segmentation{
     protected static final Logger LOGGER = LoggerFactory.getLogger(AbstractSegmentation.class);
-    protected static final Dictionary DIC = DictionaryFactory.getDictionary();
-    protected static final boolean PERSON_NAME_RECOGNIZE = "true".equals(WordConfTools.get("person.name.recognize", "true"));
-    protected static final boolean KEEP_WHITESPACE = "true".equals(WordConfTools.get("keep.whitespace", "false"));
-    protected static final boolean KEEP_PUNCTUATION = "true".equals(WordConfTools.get("keep.punctuation", "false"));
-    private static final int INTERCEPT_LENGTH = WordConfTools.getInt("intercept.length", 16);
-    private static final String NGRAM = WordConfTools.get("ngram", "bigram");
-    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(WordConfTools.getInt("thread.pool.size", 4));
+    protected static final IDic DIC = DictionaryFactory.getDictionary();
+    protected static final boolean PERSON_NAME_RECOGNIZE = "true".equals(WordConfUtil.get("person.name.recognize", "true"));
+    protected static final boolean KEEP_WHITESPACE = "true".equals(WordConfUtil.get("keep.whitespace", "false"));
+    protected static final boolean KEEP_PUNCTUATION = "true".equals(WordConfUtil.get("keep.punctuation", "false"));
+    private static final int INTERCEPT_LENGTH = WordConfUtil.getInt("intercept.length", 16);
+    private static final String NGRAM = WordConfUtil.get("ngram", "bigram");
+    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(WordConfUtil.getInt("thread.pool.size", 4));
     public abstract List<Word> segImpl(String text);
     /**
      * 是否启用ngram

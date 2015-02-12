@@ -11,7 +11,7 @@ import java.util.Stack;
 import com.sitech.analyzer.segmentation.SegmentationAlgorithm;
 import com.sitech.analyzer.segmentation.SegmentationFactory;
 import com.sitech.analyzer.segmentation.Word;
-import com.sitech.analyzer.util.RecognitionTool;
+import com.sitech.analyzer.util.RecognitionUtil;
 import com.sitech.analyzer.util.Utils;
 
 /**
@@ -146,7 +146,7 @@ public class FullSegmentation extends AbstractSegmentation{
             len = interceptLength;
         }
         while(len > 1){
-            if(DIC.contains(text, start, len) || RecognitionTool.recog(text, start, len)){
+            if(DIC.contains(text, start, len) || RecognitionUtil.recog(text, start, len)){
                 result.add(text.substring(start, start+len));
             }
             len--;

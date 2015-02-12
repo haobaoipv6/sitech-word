@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.sitech.analyzer.segmentation.Word;
 import com.sitech.analyzer.util.AutoDetector;
 import com.sitech.analyzer.util.IResource;
-import com.sitech.analyzer.util.WordConfTools;
+import com.sitech.analyzer.util.WordConfUtil;
 
 /**
  * 三元语法模型
@@ -66,7 +66,7 @@ public class Trigram {
                 }
             }
         
-        }, WordConfTools.get("trigram.path", "classpath:trigram.txt"));
+        }, WordConfUtil.get("trigram.path", "classpath:trigram.txt"));
     }
     /**
      * 一次性计算多种分词结果的三元模型分值

@@ -26,7 +26,7 @@ import org.apache.lucene.store.SimpleFSDirectory;
 import org.apache.lucene.util.Version;
 import org.junit.Test;
 
-import com.sitech.analyzer.lucene.ChineseWordAnalyzer;
+import com.sitech.analyzer.expand.lucene.ChineseWordAnalyzer;
 import com.sitech.analyzer.util.Utils;
 
 /**
