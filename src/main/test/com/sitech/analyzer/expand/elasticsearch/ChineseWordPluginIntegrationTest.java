@@ -1,4 +1,4 @@
-package com.sitech.analyzer.elasticsearch;
+package com.sitech.analyzer.expand.elasticsearch;
 
 import java.util.ArrayList;
 import java.util.List;

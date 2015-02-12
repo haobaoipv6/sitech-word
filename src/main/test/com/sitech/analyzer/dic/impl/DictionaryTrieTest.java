@@ -1,4 +1,4 @@
-package com.sitech.analyzer.dictionary.impl;
+package com.sitech.analyzer.dic.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

@@ -1,6 +1,4 @@
-package com.sitech.analyzer.segmentation.impl;
-
-import static org.junit.Assert.assertEquals;
+package com.sitech.analyzer.algorithm.participle.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,17 +6,19 @@ import java.util.List;
 import org.junit.Test;
 
 import com.sitech.analyzer.algorithm.participle.IParticiple;
-import com.sitech.analyzer.algorithm.participle.impl.MinimumMatching;
+import com.sitech.analyzer.algorithm.participle.impl.MaximumMatching;
 import com.sitech.analyzer.bean.Word;
+
+import static org.junit.Assert.*;
 
 /**
  *
  * @author hb
  */
-public class MinimumMatchingTest {
+public class MaximumMatchingTest {
     @Test
     public void testSeg() {
-        IParticiple segmentation = new MinimumMatching();
+        IParticiple segmentation = new MaximumMatching();
         List<String> text = new ArrayList<>();
         text.add("长春市长春节致辞");
         text.add("他说的确实在理");
@@ -55,57 +55,59 @@ public class MinimumMatchingTest {
         text.add("木有");
         text.add("下雨天留客天天留我不留");
         text.add("叔叔亲了我妈妈也亲了我");
+        text.add("我爱北京天安门，我来自河北，你呢？");
+        text.add("几经查找,终于找到其issue系统的地址,是个bugzilla呢 – 天啊,官网一个网站,下载一个网站,源码管理一个网站,issue管理又是再一个网站");
         
 //        List<String> expResult = new ArrayList<>();
-//        expResult.add("[长春, 市长, 春节, 致辞]");
+//        expResult.add("[长春市, 长春, 节, 致辞]");
 //        expResult.add("[杨]");
 //        expResult.add("[杨尚川, 好]");
-//        expResult.add("[杨尚川, 是, apdplat, 应用, 级, 产品, 开发, 平台, 的, 作者]");
+//        expResult.add("[杨尚川, 是, apdplat, 应用级, 产品, 开发平台, 的, 作者]");
 //        expResult.add("[他, 说, 的确, 实在, 理]");
 //        expResult.add("[提高, 人民, 生活, 水平]");
 //        expResult.add("[他俩, 儿, 谈恋爱, 是从, 头年, 元月, 开始, 的]");
-//        expResult.add("[王府, 饭店, 的, 设施, 和服, 务, 是, 一, 流, 的]");
-//        expResult.add("[和服, 务, 于, 三, 日后, 裁制, 完毕, 并, 呈送, 将军, 府中]");
-//        expResult.add("[研究, 生命, 的, 起源]");
+//        expResult.add("[王府, 饭店, 的, 设施, 和服, 务, 是, 一流, 的]");
+//        expResult.add("[和服, 务, 于, 三日, 后, 裁制, 完毕, 并, 呈送, 将军府, 中]");
+//        expResult.add("[研究生, 命, 的, 起源]");
 //        expResult.add("[他, 明天, 起身, 去, 北京]");
-//        expResult.add("[在, 这些, 企业, 中国, 有, 企业, 有, 十, 个]");
+//        expResult.add("[在, 这些, 企业, 中国, 有, 企业, 有, 十个]");
 //        expResult.add("[他, 站起, 身, 来]");
-//        expResult.add("[他们, 是, 来, 查, 金泰, 撞人, 那件, 事, 的]");
-//        expResult.add("[行侠仗义, 的, 查, 金泰, 远近, 闻名]");
-//        expResult.add("[他, 从, 马上, 摔下, 来了, 你, 马上, 下来, 一, 下]");
-//        expResult.add("[乒乓, 球拍, 卖完, 了]");
+//        expResult.add("[他们, 是, 来, 查, 金泰, 撞人, 那件事, 的]");
+//        expResult.add("[行侠仗义, 的, 查, 金泰, 远近闻名]");
+//        expResult.add("[他, 从, 马上, 摔下来, 了, 你, 马上, 下来, 一下]");
+//        expResult.add("[乒乓球拍, 卖完, 了]");
 //        expResult.add("[咬死, 猎人, 的, 狗]");
-//        expResult.add("[地面, 积, 了, 厚厚, 的, 雪]");
+//        expResult.add("[地面, 积, 了, 厚厚的, 雪]");
 //        expResult.add("[这, 几, 块, 地面, 积, 还真, 不小]");
-//        expResult.add("[大学, 生活, 象, 白纸]");
+//        expResult.add("[大学生, 活象, 白纸]");
 //        expResult.add("[结合, 成分, 子式]");
-//        expResult.add("[有意, 见, 分歧]");
-//        expResult.add("[发展, 中国, 家兔, 的, 计划]");
+//        expResult.add("[有意见, 分歧]");
+//        expResult.add("[发展中, 国家, 兔, 的, 计划]");
 //        expResult.add("[明天, 他, 将来, 北京]");
 //        expResult.add("[税收, 制度, 将来, 会, 更, 完善]");
 //        expResult.add("[依靠, 群众, 才能, 做好, 工作]");
 //        expResult.add("[现在, 是, 施展, 才能, 的, 好机会]");
-//        expResult.add("[把手, 举起, 来]");
+//        expResult.add("[把手, 举起来]");
 //        expResult.add("[茶杯, 的, 把手, 断了]");
-//        expResult.add("[以, 新的, 姿态, 出现, 在世, 界, 东方]");
-//        expResult.add("[使节, 约, 粮食, 进一, 步, 形成, 风气]");
-//        expResult.add("[反映, 了, 一, 个人, 的, 精神, 面貌]");
-//        expResult.add("[美国, 加州, 大学, 的, 科学, 家, 发现]");
+//        expResult.add("[以, 新的, 姿态, 出现在, 世界, 东方]");
+//        expResult.add("[使节, 约, 粮食, 进一步, 形成, 风气]");
+//        expResult.add("[反映, 了, 一个人, 的, 精神, 面貌]");
+//        expResult.add("[美国, 加州, 大学, 的, 科学家, 发现]");
 //        expResult.add("[我, 好不, 挺好]");
 //        expResult.add("[木, 有]");
-//        expResult.add("[下雨, 天, 留客, 天天, 留, 我, 不留]");
+//        expResult.add("[下雨天, 留客, 天天, 留, 我, 不留]");
 //        expResult.add("[叔叔, 亲了, 我, 妈妈, 也, 亲了, 我]");
-//        expResult.add("[白马, 非, 马]");
         
         for(int i=0; i<text.size(); i++){
             List<Word> result = segmentation.seg(text.get(i));
-            System.out.println(result);
 //            assertEquals(expResult.get(i).toString(), result.toString());
+            System.out.println(result);
         }
     }
     
+    
     public static void main(String[] args) {
-    	MinimumMatchingTest mini = new MinimumMatchingTest();
-    	mini.testSeg();
+    	MaximumMatchingTest test = new MaximumMatchingTest();
+    	test.testSeg();
 	}
 }

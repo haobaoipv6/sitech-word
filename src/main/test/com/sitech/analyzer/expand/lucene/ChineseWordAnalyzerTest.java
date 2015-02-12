@@ -1,4 +1,4 @@
-package com.sitech.analyzer.lucene;
+package com.sitech.analyzer.expand.lucene;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;

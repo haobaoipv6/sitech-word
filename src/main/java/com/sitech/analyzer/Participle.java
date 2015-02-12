@@ -27,8 +27,8 @@ import com.sitech.analyzer.categroy.StopWord;
  * 默认使用双向最大匹配算法
  * 也可指定其他分词算法
  */
-public class SitechSegmenter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SitechSegmenter.class);    
+public class Participle {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Participle.class);    
     /**
      * 对文本进行分词，保留停用词
      * 可指定其他分词算法

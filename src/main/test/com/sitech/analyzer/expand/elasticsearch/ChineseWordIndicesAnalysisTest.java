@@ -1,4 +1,4 @@
-package com.sitech.analyzer.elasticsearch;
+package com.sitech.analyzer.expand.elasticsearch;
 
 import static org.elasticsearch.common.settings.ImmutableSettings.Builder.EMPTY_SETTINGS;
 import static org.junit.Assert.assertEquals;
