@@ -104,6 +104,7 @@ public class WordConfUtil {
                 String[] attr = line.split("=");
                 if(attr != null && attr.length == 2){
                     conf.put(attr[0].trim(), attr[1].trim());
+                    System.out.println(attr[0]+":"+attr[1].trim());
                 }
             }
         } catch (IOException ex) {
@@ -122,7 +123,5 @@ public class WordConfUtil {
                 LOGGER.info("系统属性覆盖默认配置："+key+"="+value);
             }
         }
-    }
-    public static void main(String[] args){
     }
 }

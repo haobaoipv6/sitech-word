@@ -47,7 +47,7 @@ public class MaximumMatching extends AbstractSegmentation{
         return result;
     }    
     public static void main(String[] args){
-        String text = "他十分惊讶地说：“啊，原来是您，杨尚川！能见到您真是太好了，我有个Nutch问题想向您请教呢！”";
+        String text = "他十分惊讶地说：“啊，原来是您，能见到您真是太好了，我有个Nutch问题想向您请教呢！”";
         if(args !=null && args.length == 1){
             text = args[0];
         }

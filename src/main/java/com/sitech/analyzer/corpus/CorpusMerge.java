@@ -23,12 +23,6 @@ import org.slf4j.LoggerFactory;
 public class CorpusMerge {
     private static final Logger LOGGER = LoggerFactory.getLogger(CorpusMerge.class);
     
-    public static void main(String[] args) throws IOException{
-        //注意输入语料库的文件编码要为UTF-8
-        String source = "d:/corpora";
-        String target = "src/main/resources/corpus/corpus.txt";
-        merge(source, target);
-    }
     /**
      * 将多个语料库文件合并为一个
      * @param source 目录，可多级嵌套
@@ -59,5 +53,12 @@ public class CorpusMerge {
         }
         LOGGER.info("语料库行数："+lines.get());
         LOGGER.info("语料库字符数目："+count.get());
+    }
+    
+    public static void main(String[] args) throws IOException{
+        //注意输入语料库的文件编码要为UTF-8
+        String source = "d:/corpora";
+        String target = "src/main/resources/corpus/corpus.txt";
+        merge(source, target);
     }
 }

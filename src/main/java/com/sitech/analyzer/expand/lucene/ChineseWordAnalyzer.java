@@ -40,14 +40,14 @@ public class ChineseWordAnalyzer extends Analyzer {
     
     public static void main(String args[]) throws IOException {
         Analyzer analyzer = new ChineseWordAnalyzer();
-        TokenStream tokenStream = analyzer.tokenStream("text", "杨尚川是APDPlat应用级产品开发平台的作者");
+        TokenStream tokenStream = analyzer.tokenStream("text", "Topic Modeling是一种文本挖掘的方法");
         while(tokenStream.incrementToken()){
             CharTermAttribute charTermAttribute = tokenStream.getAttribute(CharTermAttribute.class);
             OffsetAttribute offsetAttribute = tokenStream.getAttribute(OffsetAttribute.class);
             PositionIncrementAttribute positionIncrementAttribute = tokenStream.getAttribute(PositionIncrementAttribute.class);
             LOGGER.info(charTermAttribute.toString()+" ("+offsetAttribute.startOffset()+" - "+offsetAttribute.endOffset()+") "+positionIncrementAttribute.getPositionIncrement());
         }
-        tokenStream = analyzer.tokenStream("text", "word是一个中文分词项目，作者是杨尚川，杨尚川的英文名叫ysc");
+        tokenStream = analyzer.tokenStream("text", "Topic Modeling是一种文本挖掘的方法");
         while(tokenStream.incrementToken()){
             CharTermAttribute charTermAttribute = tokenStream.getAttribute(CharTermAttribute.class);
             OffsetAttribute offsetAttribute = tokenStream.getAttribute(OffsetAttribute.class);

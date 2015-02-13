@@ -271,12 +271,6 @@ public class DicImpl implements IDic{
     }
     public static void main(String[] args){
         DicImpl trie = new DicImpl();
-        trie.add("APDPlat");
-        trie.add("APP");
-        trie.add("APD");
-//        trie.add("杨尚川");
-//        trie.add("杨尚昆");
-        trie.add("杨尚喜");
         trie.add("中华人民共和国");
         trie.add("中华人民打太极");
 //        trie.show();

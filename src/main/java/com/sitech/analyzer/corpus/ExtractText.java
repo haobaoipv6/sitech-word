@@ -28,19 +28,7 @@ public class ExtractText {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExtractText.class);
     private static final AtomicInteger WORD_COUNT = new AtomicInteger();   
     private static final AtomicInteger CHAR_COUNT = new AtomicInteger();    
-
-    public static void main(String[] args){
-        String output = "target/word.txt";
-        String separator = " ";
-        if(args.length == 1){
-            output = args[0];
-        }
-        if(args.length == 2){
-            output = args[0];
-            separator = args[1];
-        }
-        extractFromCorpus(output, separator, true);
-    }
+   
     /**
      * 从语料库中抽取内容
      * @param output 保存抽取出的文本的文件路径
@@ -154,5 +142,18 @@ public class ExtractText {
         }catch(Exception e){
             LOGGER.info("从语料库 "+file+" 中抽取文本失败：", e);
         }        
+    }
+    
+    public static void main(String[] args){
+        String output = "target/word.txt";
+        String separator = " ";
+        if(args.length == 1){
+            output = args[0];
+        }
+        if(args.length == 2){
+            output = args[0];
+            separator = args[1];
+        }
+        extractFromCorpus(output, separator, true);
     }
 }

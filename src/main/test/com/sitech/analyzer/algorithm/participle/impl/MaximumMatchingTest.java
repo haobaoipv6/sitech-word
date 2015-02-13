@@ -61,8 +61,6 @@ public class MaximumMatchingTest {
 //        List<String> expResult = new ArrayList<>();
 //        expResult.add("[长春市, 长春, 节, 致辞]");
 //        expResult.add("[杨]");
-//        expResult.add("[杨尚川, 好]");
-//        expResult.add("[杨尚川, 是, apdplat, 应用级, 产品, 开发平台, 的, 作者]");
 //        expResult.add("[他, 说, 的确, 实在, 理]");
 //        expResult.add("[提高, 人民, 生活, 水平]");
 //        expResult.add("[他俩, 儿, 谈恋爱, 是从, 头年, 元月, 开始, 的]");

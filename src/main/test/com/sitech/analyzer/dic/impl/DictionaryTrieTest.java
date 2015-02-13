@@ -19,10 +19,6 @@ public class DictionaryTrieTest {
     @Before
     public void setUp() {
         trie = new DictionaryTrie();
-        trie.add("APDPlat");
-        trie.add("APP");
-        trie.add("APD");
-        trie.add("杨尚川");
         trie.add("杨尚昆");
         trie.add("杨尚喜");
         trie.add("中华人民共和国");
@@ -61,7 +57,6 @@ public class DictionaryTrieTest {
         boolean result = trie.contains(item);
         assertEquals(expResult, result);
         
-        item = "杨尚川";
         expResult = true;
         result = trie.contains(item);
         assertEquals(expResult, result);
@@ -96,7 +91,6 @@ public class DictionaryTrieTest {
         result = trie.contains(item);
         assertEquals(expResult, result);
         
-        item = "APDP";
         expResult = false;
         result = trie.contains(item);
         assertEquals(expResult, result);

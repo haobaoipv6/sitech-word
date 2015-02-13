@@ -37,6 +37,7 @@ public abstract class AbstractSegmentation  implements IParticiple{
     private static final String NGRAM = WordConfUtil.get("ngram", "bigram");
     private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(WordConfUtil.getInt("thread.pool.size", 4));
     public abstract List<Word> segImpl(String text);
+    
     /**
      * 是否启用ngram
      * @return 是或否

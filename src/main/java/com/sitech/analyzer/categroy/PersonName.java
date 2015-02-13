@@ -194,17 +194,16 @@ public class PersonName {
         for(String str : surname2){
             LOGGER.info((i++)+" : "+str);
         }
-        LOGGER.info("杨尚川："+is("杨尚川"));
+        LOGGER.info("张三："+is("张三"));
         LOGGER.info("欧阳飞燕："+is("欧阳飞燕"));
         LOGGER.info("令狐冲："+is("令狐冲"));
-        LOGGER.info("杨尚川爱读书："+is("杨尚川爱读书"));
+        LOGGER.info("张三爱读书："+is("张三爱读书"));
         List<Word> test = new ArrayList<>();
         test.add(new Word("快"));
         test.add(new Word("来"));
         test.add(new Word("看"));
-        test.add(new Word("杨"));
-        test.add(new Word("尚"));
-        test.add(new Word("川"));
+        test.add(new Word("张"));
+        test.add(new Word("三"));
         test.add(new Word("表演"));
         test.add(new Word("魔术"));
         test.add(new Word("了"));
@@ -240,7 +239,7 @@ public class PersonName {
         LOGGER.info(recognize(test).toString());
         
         test = new ArrayList<>();
-        test.add(new Word("杨尚川"));
+        test.add(new Word("张三"));
         test.add(new Word("好"));
         LOGGER.info(recognize(test).toString());
         

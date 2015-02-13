@@ -45,7 +45,7 @@ public class MinimumMatching extends AbstractSegmentation{
         return result;
     }
     public static void main(String[] args){
-        String text = "《红楼梦》的作者是曹雪芹。课文里有一篇鲁迅的《从百草园到三味书屋》。他的文章在《人民日报》上发表了。桌上放着一本《中国语文》。《〈中国工人〉发刊词》发表于1940年2月7日。杨尚川是APDPlat应用级产品开发平台的作者";
+        String text = "《红楼梦》的作者是曹雪芹。课文里有一篇鲁迅的《从百草园到三味书屋》。他的文章在《人民日报》上发表了。桌上放着一本《中国语文》。《〈中国工人〉发刊词》发表于1940年2月7日。";
         if(args !=null && args.length == 1){
             text = args[0];
         }

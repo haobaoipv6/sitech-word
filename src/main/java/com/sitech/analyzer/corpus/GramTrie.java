@@ -331,12 +331,12 @@ public class GramTrie{
     }
     public static void main(String[] args){
         GramTrie trie = new GramTrie();
-        trie.put("杨尚川", 100);
-        trie.put("杨尚喜", 99);
-        trie.put("杨尚丽", 99);
+        trie.put("张三", 100);
+        trie.put("李四", 99);
+        trie.put("王五", 99);
         trie.show();
-        LOGGER.info("杨尚川："+trie.get("杨尚川"));
-        LOGGER.info("杨尚喜："+trie.get("杨尚喜"));
-        LOGGER.info("杨尚丽："+trie.get("杨尚丽"));
+        LOGGER.info("张三："+trie.get("张三"));
+        LOGGER.info("李四："+trie.get("李四"));
+        LOGGER.info("王五："+trie.get("王五"));
     }
 }

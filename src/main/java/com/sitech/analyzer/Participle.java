@@ -194,7 +194,6 @@ public class Participle {
     private static void demo(){
         long start = System.currentTimeMillis();
         List<String> sentences = new ArrayList<>();
-        sentences.add("杨尚川是APDPlat应用级产品开发平台的作者");
         sentences.add("他说的确实在理");
         sentences.add("提高人民生活水平");
         sentences.add("他俩儿谈恋爱是从头年元月开始的");
@@ -235,7 +234,6 @@ public class Participle {
         sentences.add("张掖市民陈军");
         sentences.add("张掖市明乐县");
         sentences.add("中华人民共和国万岁万岁万万岁");
-        sentences.add("word是一个中文分词项目，作者是杨尚川，杨尚川的英文名叫ysc");
         sentences.add("江阴毛纺厂成立了保持党员先进性爱国主义学习小组,在江阴道路管理局协助下,通过宝鸡巴士公司,与蒙牛酸酸乳房山分销点组成了开放性交互式的讨论组, 认为google退出中国事件赤裸裸体现了帝国主义的文化侵略,掀起了爱国主义的群众性高潮。");
         int i=1;
         for(String sentence : sentences){
@@ -316,7 +314,6 @@ public class Participle {
         LOGGER.info("命令command的可选值为：demo、text、file");
         LOGGER.info("命令可使用缩写d t f，如不指定命令，则默认为text命令，对输入的文本分词");
         LOGGER.info("demo");
-        LOGGER.info("text 杨尚川是APDPlat应用级产品开发平台的作者");
         LOGGER.info("file d:/text.txt d:/word.txt");
         LOGGER.info("exit");
         LOGGER.info("********************************************");
