@@ -370,6 +370,7 @@ public class AutoDetector {
         resources.put(fileWatcher, resourcePaths);
         resourceLoaders.put(fileWatcher, resourceLoader);
     }
+    
     public static void main(String[] args){
         AutoDetector.loadAndWatch(new IResource(){
 

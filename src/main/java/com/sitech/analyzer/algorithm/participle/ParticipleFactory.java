@@ -27,7 +27,7 @@ public class ParticipleFactory {
                 segmentation = (IParticiple)Class.forName(clazz).newInstance();
                 pool.put(clazz, segmentation);
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-                LOGGER.info("构造分词实现类失败：", e);
+                LOGGER.error("构造分词实现类失败：", e);
             }
         }
         return segmentation;

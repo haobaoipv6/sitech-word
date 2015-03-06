@@ -45,6 +45,7 @@ public abstract class AbstractSegmentation  implements IParticiple{
     public boolean ngramEnabled(){
         return "bigram".equals(NGRAM) || "trigram".equals(NGRAM);
     }
+    
     /**
      * 利用ngram进行评分
      * @param sentences 多个分词结果
@@ -60,6 +61,7 @@ public abstract class AbstractSegmentation  implements IParticiple{
         }
         return null;
     }
+    
     /**
      * 分词时截取的字符串的最大长度
      * @return 
@@ -214,7 +216,5 @@ public abstract class AbstractSegmentation  implements IParticiple{
     protected boolean isWhiteSpace(char c){
         return c == ' ' || c == '　' || c == '\t' || c == '\n';
     }
-    public static void main(String[] args){
-
-    }
+    
 }

@@ -7,19 +7,19 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.sitech.analyzer.util.AutoDetector;
 import com.sitech.analyzer.util.IResource;
 import com.sitech.analyzer.util.WordConfUtil;
 
-
 /**
  * 判断一个字符是否是标点符号
  * @author hb
  */
 public class Punctuation {
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Punctuation.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Punctuation.class);
     private static char[] chars = null;
     static{
         reload();
@@ -99,7 +99,6 @@ public class Punctuation {
                 clear();
                 load(lines);
             }
-        
         }, WordConfUtil.get("punctuation.path", "classpath:punctuation.txt"));
     }
     /**
@@ -164,16 +163,5 @@ public class Punctuation {
         int index = Arrays.binarySearch(chars, _char);
         return index >= 0;
     }
-    public static void main(String[] args){
-        LOGGER.info("标点符号资源");
-        LOGGER.info(", : "+is(','));
-        LOGGER.info("  : "+is(' '));
-        LOGGER.info("　 : "+is('　'));
-        LOGGER.info("\t : "+is('\t'));
-        LOGGER.info("\n : "+is('\n'));
-        String text= "APDPlat的雏形可以追溯到2008年，并于4年后即2012年4月9日在GITHUB开源 。APDPlat在演化的过程中，经受住了众多项目的考验，一直追求简洁优雅，一直对架构、设计和代码进行重构优化。 ";
-        for(String s : Punctuation.seg(text, true)){
-            LOGGER.info(s);
-        }
-    }
+    
 }

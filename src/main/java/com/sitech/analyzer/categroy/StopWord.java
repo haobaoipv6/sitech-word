@@ -97,11 +97,8 @@ public class StopWord {
         word = word.trim();
         return isStopChar(word) || stopwords.contains(word);
     }
-    public static void main(String[] args){
-        LOGGER.info("停用词：");
-        int i=1;
-        for(String w : stopwords){
-            LOGGER.info((i++)+" : "+w);
-        }
-    }
+	public static Set<String> getStopwords() {
+		return stopwords;
+	}
+    
 }

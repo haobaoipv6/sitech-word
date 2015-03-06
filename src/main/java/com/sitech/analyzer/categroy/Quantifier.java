@@ -72,10 +72,9 @@ public class Quantifier {
     public static boolean is(char _char){
         return quantifiers.contains(_char);
     }
-    public static void main(String[] args){
-        int i=1;
-        for(char quantifier : quantifiers){
-            LOGGER.info((i++)+" : "+quantifier);
-        }
-    }
+    
+	public static Set<Character> getQuantifiers() {
+		return quantifiers;
+	}
+    
 }
