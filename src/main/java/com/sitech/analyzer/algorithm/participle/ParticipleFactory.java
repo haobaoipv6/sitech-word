@@ -17,6 +17,7 @@ public class ParticipleFactory {
     private static final Logger LOGGER = LoggerFactory.getLogger(ParticipleFactory.class);
     private static final Map<String, IParticiple> pool = new HashMap<>();
     private ParticipleFactory(){};
+    
     public static synchronized IParticiple getSegmentation(SegmentationAlgorithm segmentationAlgorithm){
         String clazz = "com.sitech.analyzer.algorithm.participle.impl."+segmentationAlgorithm.name();
         IParticiple segmentation = pool.get(clazz);
@@ -25,8 +26,8 @@ public class ParticipleFactory {
             try {
                 segmentation = (IParticiple)Class.forName(clazz).newInstance();
                 pool.put(clazz, segmentation);
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-                LOGGER.info("构造分词实现类失败：", ex);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                LOGGER.info("构造分词实现类失败：", e);
             }
         }
         return segmentation;
